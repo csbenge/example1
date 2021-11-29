@@ -1,5 +1,6 @@
 /*
   This is a Java program.
+  Token: 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
 */
 
 class Example {
