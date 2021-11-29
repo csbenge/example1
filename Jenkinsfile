@@ -3,19 +3,14 @@ pipeline {
     stages {
        stage('build') {
           steps {
-             echo 'BUILD'
-             updateGitlabCommitStatus name: 'build', state: 'pending'
+             echo '***** BUILD *****'
              echo 'javac Example.java'
-             updateGitlabCommitStatus name: 'build', state: 'success'
           }
        }
        stage('test') {
            steps {
-               echo 'TEST'
-               updateGitlabCommitStatus name: 'test', state: 'pending'
+               echo '***** TEST *****'
                echo 'java Example'
-               updateGitlabCommitStatus name: 'test', state: 'success'
-
            }
        }
     }
