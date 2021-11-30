@@ -20,8 +20,8 @@ pipeline {
        stage('deploy') {
            steps {
                echo '***** DEPLOY *****'
-               echo 'cp Example.class'
-               sh 'java example.java.Example'
+               echo 'Deploying Example.class'
+               sh 'cd src;java example.java.Example'
            }
        }
     }
