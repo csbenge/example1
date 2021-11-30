@@ -4,21 +4,22 @@ pipeline {
        stage('build') {
           steps {
              echo '***** BUILD *****'
-             echo 'javac Example.java'
-             sh 'javac Example.java'
+             echo 'javac example/java/Example.java'
+             sh 'java example.java.Example'
           }
        }
        stage('test') {
            steps {
                echo '***** TEST *****'
-               echo 'java Example'
-               sh 'java Example'
+               echo 'javac test/java/ExampleTest.java'
+               sh 'java test.java.ExampleTest'
            }
        }
        stage('deploy') {
            steps {
                echo '***** DEPLOY *****'
                echo 'cp Example.class'
+               sh 'java example.java.Example'
            }
        }
     }
