@@ -5,6 +5,7 @@ pipeline {
           steps {
              echo '***** BUILD *****'
              echo 'javac example/java/Example.java'
+             sh 'ls -F'
              sh 'java example.java.Example'
           }
        }

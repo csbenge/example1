@@ -1,8 +1,7 @@
 package example.java;
 /*
   This is a Java program.
-  Token: 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
-  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
+  Token: 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
 
 */
 
