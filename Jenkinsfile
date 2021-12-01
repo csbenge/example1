@@ -4,7 +4,7 @@ pipeline {
        THIS_VERSION = '1.3.0'
     }
     parameters {
-       choice(name: 'THIS_VERSION'), choices: ['1.1.0', '1.2.0', '1.3.0'])
+       choice(name: 'THIS_VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'])
        booleanParam(name: 'runTests', defaultValue: true, description: '')
     }
     stages {
