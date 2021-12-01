@@ -41,13 +41,13 @@ pipeline {
 
     post {
        always {
-
+            echo 'Do this always'
        }
        success {
-
+            echo 'Do this on success'
        }
        failure {
-
+            echo 'Do this on failure'
        }
     }
  }
