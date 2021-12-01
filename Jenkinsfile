@@ -1,16 +1,29 @@
 pipeline {
     agent any
+    environment {
+       THIS_VERSION = '1.3.0'
+    }
+    parameters {
+       choice(name: 'THIS_VERSION'), choices: ['1.1.0', '1.2.0', '1.3.0'])
+       booleanParam(name: 'runTests', defaultValue: true, description: '')
+    }
     stages {
        stage('build') {
           steps {
              echo '***** BUILD *****'
              echo 'Building Main Application...'
+             echo "*** VERSION: ${THIS_VERSION}"
              sh 'cd src;javac example/java/Example.java'
              echo 'Building Test Application...'
              sh 'cd src;javac test/java/ExampleTest.java'
           }
        }
        stage('test') {
+            when {
+               expression {
+                  params.runTest == true
+               }
+            }
            steps {
                echo '***** TEST *****'
                echo 'Testing squareIt()...'
@@ -23,6 +36,18 @@ pipeline {
                echo 'Deploying Example.class'
                sh 'cd src;java example.java.Example'
            }
+       }
+    }
+
+    post {
+       always {
+
+       }
+       success {
+
+       }
+       failure {
+
        }
     }
  }
